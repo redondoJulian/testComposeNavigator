@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -39,10 +40,10 @@ class MainActivity : ComponentActivity() {
                         contentColor = Color.White,
                         shape = CircleShape
                     ) {
-                        Icon(contentDescription = "Add", imageVector = Icons.Default.AddCircle)
+                        Icon(contentDescription = "Add", imageVector = Icons.Default.Star)
                     }
                 }
-            ) {
+            ) { innerPadding ->
                 Box(
                     modifier = Modifier
                         .fillMaxSize()

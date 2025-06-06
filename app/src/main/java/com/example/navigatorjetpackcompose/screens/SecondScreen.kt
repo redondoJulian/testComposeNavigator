@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -43,7 +44,7 @@ fun SecondPage(navController: NavHostController, contador: Int) {
                 .fillMaxSize()
         ) {
             Text(
-                text = "Esto es una prueba: $contador",
+                text = "Cantidad de estrellas: $contador",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
             )

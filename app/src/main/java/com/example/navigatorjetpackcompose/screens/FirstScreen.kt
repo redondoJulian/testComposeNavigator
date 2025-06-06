@@ -4,7 +4,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -24,7 +27,7 @@ fun FirstPage(navController: NavHostController, contador: Int) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Página principal") },
+                title = { Text(text = "Kikita hermosauwu") },
                 navigationIcon = {
                     IconButton(onClick = { navController.navigate("second") }) {
                         Icon(
@@ -42,7 +45,7 @@ fun FirstPage(navController: NavHostController, contador: Int) {
                 .fillMaxSize()
         ) {
             Text(
-                text = "Esto es una prueba: $contador",
+                text = "Cantidad de estrellas: $contador",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
             )
