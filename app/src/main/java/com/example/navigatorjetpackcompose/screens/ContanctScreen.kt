@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -27,7 +28,7 @@ import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FirstScreen(navController: NavHostController){
+fun ContactScreen(navController: NavHostController, nameArgument: String?){
     Scaffold(
         topBar = {
             TopAppBar(
@@ -37,9 +38,9 @@ fun FirstScreen(navController: NavHostController){
                 ),
                 navigationIcon = {
                     IconButton(
-                        onClick = {}
+                        onClick = {navController.popBackStack()}
                     ) { Icon(
-                        imageVector = Icons.Default.Home,
+                        imageVector = Icons.Default.ArrowBack,
                         contentDescription = "Segunda página",
                         tint = Color.White
                         ) }
@@ -56,28 +57,18 @@ fun FirstScreen(navController: NavHostController){
             .background(Color.LightGray),
 
         ){
-            Column {
-                CardConteiner("Julian", navController)
-                CardConteiner("Jesica", navController)
-                CardConteiner("Jesus", navController)
-                CardConteiner("Kukita HERMOSA", navController)
-            }
+            Text(
+                text = "Hola $nameArgument",
+                fontWeight = FontWeight.Bold,
+                fontSize = 34.sp,
+                modifier = Modifier
+                    .background(Color.Gray)
+                    .clickable{
+
+                    }
+                    .padding(horizontal = 24.dp, vertical = 34.dp)
+                    .fillMaxWidth()
+            )
         }
     }
-}
-
-@Composable
-fun CardConteiner(name: String, navController: NavHostController){
-    Text(
-        text = name,
-        fontWeight = FontWeight.Bold,
-        fontSize = 34.sp,
-        modifier = Modifier
-            .background(Color.Gray)
-            .clickable{
-                navController.navigate("contact/$name")
-            }
-            .padding(horizontal = 24.dp, vertical = 34.dp)
-            .fillMaxWidth()
-        )
 }

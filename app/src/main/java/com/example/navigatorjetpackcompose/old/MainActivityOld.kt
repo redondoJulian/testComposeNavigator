@@ -1,4 +1,4 @@
-package com.example.navigatorjetpackcompose
+package com.example.navigatorjetpackcompose.old
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,8 +11,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.navigatorjetpackcompose.screens.ContactScreen
-import com.example.navigatorjetpackcompose.screens.FirstScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,43 +18,45 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
+            val velocityDur = 400
             NavHost(
                 navController = navController,
                 startDestination = "first",
                 enterTransition = {
                     slideIntoContainer(
-                        towards = AnimatedContentTransitionScope.SlideDirection.Left,
-                        animationSpec = tween(300)
+                        towards = AnimatedContentTransitionScope.SlideDirection.Start,
+                        animationSpec = tween(velocityDur)
                     )
                 },
                 exitTransition = {
                     slideOutOfContainer(
-                        towards = AnimatedContentTransitionScope.SlideDirection.Left,
-                        animationSpec = tween(300)
+                        towards = AnimatedContentTransitionScope.SlideDirection.Start,
+                        animationSpec = tween(velocityDur)
                     )
                 },
                 popEnterTransition = {
                     slideIntoContainer(
-                        towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                        animationSpec = tween(300)
+                        towards = AnimatedContentTransitionScope.SlideDirection.End,
+                        animationSpec = tween(velocityDur)
                     )
                 },
                 popExitTransition = {
                     slideOutOfContainer(
-                        towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                        animationSpec = tween(300)
+                        towards = AnimatedContentTransitionScope.SlideDirection.End,
+                        animationSpec = tween(velocityDur)
                     )
                 }
-                ) {
+            ) {
                 composable(route = "first") { FirstScreen(navController) }
+                //composable(route = "contact") { ContactScreen(navController) }
                 composable(
-                    route = "contact/{nameArgument}",
-                    arguments = listOf(navArgument("nameArgument") {
+                    route = "contact/{name}",
+                    arguments = listOf(navArgument("name") {
                         type = NavType.StringType
                     })
                 ) { navBackStackEntry ->
-                    val nameArgument = navBackStackEntry.arguments?.getString("nameArgument")
-                    ContactScreen(navController, nameArgument)
+                    val name = navBackStackEntry.arguments?.getString("name")
+
                 }
             }
         }

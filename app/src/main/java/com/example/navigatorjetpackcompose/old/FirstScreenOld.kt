@@ -1,11 +1,9 @@
-package com.example.navigatorjetpackcompose.screens
+package com.example.navigatorjetpackcompose.old
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -14,6 +12,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -27,57 +26,51 @@ import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FirstScreen(navController: NavHostController){
+fun FirstScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Primer página", color = Color.White) },
+                title = { Text(text = "Primera página", color = Color.White) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Black
                 ),
                 navigationIcon = {
-                    IconButton(
-                        onClick = {}
-                    ) { Icon(
-                        imageVector = Icons.Default.Home,
-                        contentDescription = "Segunda página",
-                        tint = Color.White
-                        ) }
+                    IconButton(onClick = { navController.navigate("second") }) {
+                        Icon(
+                            imageVector = Icons.Default.Home,
+                            tint = Color.White,
+                            contentDescription = "Segunda página"
+                        )
+                    }
                 }
             )
         }
-    ) {
-        innerPadding ->
+    ) { innerPadding ->
         Box(
-
             modifier = Modifier
-            .padding(innerPadding)
-            .fillMaxSize()
-            .background(Color.LightGray),
-
-        ){
+                .padding(innerPadding)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
             Column {
-                CardConteiner("Julian", navController)
-                CardConteiner("Jesica", navController)
-                CardConteiner("Jesus", navController)
-                CardConteiner("Kukita HERMOSA", navController)
+                ShowName("Julian", navController)
+                ShowName("Jesica", navController)
+                ShowName("Jesus", navController)
             }
         }
     }
 }
 
 @Composable
-fun CardConteiner(name: String, navController: NavHostController){
+fun ShowName(name: String, navController: NavHostController) {
     Text(
-        text = name,
-        fontWeight = FontWeight.Bold,
-        fontSize = 34.sp,
-        modifier = Modifier
-            .background(Color.Gray)
+        modifier = Modifier.padding(8.dp)
             .clickable{
                 navController.navigate("contact/$name")
-            }
-            .padding(horizontal = 24.dp, vertical = 34.dp)
-            .fillMaxWidth()
-        )
+            },
+        text = name,
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp,
+        color = Color.DarkGray
+    )
 }
