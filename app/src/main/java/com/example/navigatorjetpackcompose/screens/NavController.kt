@@ -12,6 +12,7 @@ import com.example.navigatorjetpackcompose.Screens
 @Composable
 fun NavController() {
     val navController = rememberNavController()
+    val animationVel = 300
     NavHost(
         navController = navController,
         startDestination = "initialScreen"
@@ -24,13 +25,13 @@ fun NavController() {
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Up,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             },
             exitTransition = {
                 slideOutOfContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Down,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             }
         ) { DirectionalScreen(navController, Color.Blue, "Up / Go back") }
@@ -41,13 +42,13 @@ fun NavController() {
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Down,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             },
             exitTransition = {
                 slideOutOfContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Up,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             }
         ) { DirectionalScreen(navController, Color.Green, "Down / Go back") }
@@ -58,13 +59,13 @@ fun NavController() {
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Left,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             },
             exitTransition = {
                 slideOutOfContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             }
             ) { DirectionalScreen(navController, Color.Red, "Left / Go back") }
@@ -75,13 +76,13 @@ fun NavController() {
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             },
             exitTransition = {
                 slideOutOfContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Left,
-                    animationSpec = tween(300)
+                    animationSpec = tween(animationVel)
                 )
             }
             ) { DirectionalScreen(navController, Color.Yellow, "Right / Go back") }
