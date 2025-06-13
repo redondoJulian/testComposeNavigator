@@ -16,11 +16,11 @@ fun NavController() {
         navController = navController,
         startDestination = "initialScreen"
     ) {
-        composable(route = Screens.initial.screen) { InitialScreen(navController) }
+        composable(route = Screens.Initial.screen) { InitialScreen(navController) }
 
         //Up
         composable(
-            route = Screens.up.screen,
+            route = Screens.Up.screen,
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Up,
@@ -37,7 +37,7 @@ fun NavController() {
 
         //Down
         composable(
-            route = Screens.down.screen,
+            route = Screens.Down.screen,
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Down,
@@ -54,7 +54,7 @@ fun NavController() {
 
         //Left
         composable(
-            route = Screens.left.screen,
+            route = Screens.Left.screen,
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Left,
@@ -71,7 +71,7 @@ fun NavController() {
 
         //Right
         composable(
-            route = Screens.right.screen,
+            route = Screens.Right.screen,
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Right,

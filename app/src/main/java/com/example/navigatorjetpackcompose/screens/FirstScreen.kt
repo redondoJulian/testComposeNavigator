@@ -7,16 +7,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -33,43 +31,47 @@ fun InitialScreen(navController: NavHostController) {
                 .background(Color.LightGray)
                 .fillMaxSize()
         ) {
-            Box(modifier = Modifier
-                .size(100.dp)
-                .background(Color.Gray)){
-                IconButton( //Arriba
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .background(Color.Gray)
+            ) {
+                IconButton( //Up
                     modifier = Modifier.align(Alignment.TopCenter),
-                    onClick = {navController.navigate(Screens.up.screen)}){
+                    onClick = { navController.navigate(Screens.Up.screen) }) {
                     Icon(
                         imageVector = Icons.Default.KeyboardArrowUp,
                         contentDescription = "Up",
                         tint = Color.White,
                     )
                 }
-                IconButton( //Abajo
+                IconButton( //Down
                     modifier = Modifier.align(Alignment.BottomCenter),
-                    onClick = {navController.navigate(Screens.down.screen)}){
+                    onClick = { navController.navigate(Screens.Down.screen) }) {
                     Icon(
                         imageVector = Icons.Default.KeyboardArrowDown,
                         contentDescription = "Down",
                         tint = Color.White,
                     )
                 }
-                IconButton( //Izquierda
+                IconButton( //Left
                     modifier = Modifier.align(Alignment.CenterStart),
-                    onClick = {navController.navigate(Screens.left.screen)}){
+                    onClick = { navController.navigate(Screens.Left.screen) }) {
                     Icon(
-                        imageVector = Icons.Default.KeyboardArrowLeft,
+                        imageVector = Icons.Default.KeyboardArrowUp,
                         contentDescription = "Left",
                         tint = Color.White,
+                        modifier = Modifier.rotate(270f)
                     )
                 }
-                IconButton( //Derecha
+                IconButton( //Right
                     modifier = Modifier.align(Alignment.CenterEnd),
-                    onClick = {navController.navigate(Screens.right.screen)}){
+                    onClick = { navController.navigate(Screens.Right.screen) }) {
                     Icon(
-                        imageVector = Icons.Default.KeyboardArrowRight,
+                        imageVector = Icons.Default.KeyboardArrowUp,
                         contentDescription = "Right",
                         tint = Color.White,
+                        modifier = Modifier.rotate(90f)
                     )
                 }
             }
