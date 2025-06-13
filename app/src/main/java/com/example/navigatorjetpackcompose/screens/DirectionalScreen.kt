@@ -19,7 +19,7 @@ import androidx.navigation.NavHostController
 
 
 @Composable
-fun DirectionalScreen(navController: NavHostController, backgroundColor: Color) {
+fun DirectionalScreen(navController: NavHostController, backgroundColor: Color, text: String) {
     Scaffold { innerPadding ->
         Box(
             contentAlignment = Alignment.Center,
@@ -29,10 +29,10 @@ fun DirectionalScreen(navController: NavHostController, backgroundColor: Color) 
                 .fillMaxSize()
         ) {
             Box(modifier = Modifier
-                .size(width = 200.dp, height = 100.dp)
+                .size(width = 300.dp, height = 100.dp)
                 .background(Color.White)){
                 Text(
-                    text = "Back",
+                    text = text,
                     color = Color.White,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,

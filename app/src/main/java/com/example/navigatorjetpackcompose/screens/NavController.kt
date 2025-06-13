@@ -33,7 +33,7 @@ fun NavController() {
                     animationSpec = tween(300)
                 )
             }
-        ) { DirectionalScreen(navController, Color.Blue) }
+        ) { DirectionalScreen(navController, Color.Blue, "Up / Go back") }
 
         //Down
         composable(
@@ -50,7 +50,7 @@ fun NavController() {
                     animationSpec = tween(300)
                 )
             }
-        ) { DirectionalScreen(navController, Color.Green) }
+        ) { DirectionalScreen(navController, Color.Green, "Down / Go back") }
 
         //Left
         composable(
@@ -67,7 +67,7 @@ fun NavController() {
                     animationSpec = tween(300)
                 )
             }
-            ) { DirectionalScreen(navController, Color.Red) }
+            ) { DirectionalScreen(navController, Color.Red, "Left / Go back") }
 
         //Right
         composable(
@@ -84,6 +84,6 @@ fun NavController() {
                     animationSpec = tween(300)
                 )
             }
-            ) { DirectionalScreen(navController, Color.Yellow) }
+            ) { DirectionalScreen(navController, Color.Yellow, "Right / Go back") }
     }
 }
